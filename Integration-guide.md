@@ -199,11 +199,39 @@ trinityAudio.pause()
 
 Java
 ```java
-trinityAudio.pause()
+trinityAudio.pause();
 ```
 
 *this method accepts playerID which is only required in multiple player setups.
+*The `playerId` can be obtained from the `playerId` property of `TrinityAudioProtocol`. However, it is only available after the `trinityOnPlayerReady(service: TrinityAudio, playerId: String)` method of `TrinityPlayerListener` is called.
 
+To pause all players, use the `pauseAll()` method of `TrinityAudioProtocol`.
+For example : 
+
+Kotlin
+```kotin
+    trinityAudio.pauseAll()
+```
+
+Java
+```java
+   trinityAudio.pauseAll();
+```
+
+To resume playback, use the `play()` method of `TrinityAudioProtocol`.
+For example : 
+
+Kotlin
+```kotin
+    trinityAudio.play()
+```
+
+Java
+```java
+   trinityAudio.play();
+```
+
+The TTS player supports autoplay if the `autoPlay` property of `TrinityAudioProtocol` is set to `true`. When enabled, the player will autoplay when it is ready to play.
 
 The trinity player offers multiple other APIs and to interact with it.
 This can be done by invoking the JS player API methods.
@@ -265,6 +293,12 @@ The listener can be used to subscribe to events emitted by the player. This can 
 TrinityPlayerListener methods.
 
 * * * * *
+
+- To receive a callback when the player is ready to play, implement this optional method
+
+```java
+public void trinityOnPlayerReady(@NonNull TrinityAudio trinityAudio, @NonNull playerId: String)
+```
 
 - For detecting changes of the content height in different states use:
 
