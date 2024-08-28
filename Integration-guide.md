@@ -131,6 +131,15 @@ try {
    e.printStackTrace();
 }
 ```
+#### Autoplay
+The player supports autoplay if the `autoPlay` property of `TrinityAudioProtocol` is set to `true`. The autoplay property *must* be set before calling the `render()` method for autoplay to work.
+When enabled, the player will play the audio once ready, without waiting for user interaction.
+
+```
+//example 
+trinityAudio.autoPlay = true
+```
+
 
 #### GDPR & US privacy support
 GDPR & US privacy consent string can be directly passed to the player as part of the `settings` map.  
@@ -230,8 +239,6 @@ Java
 ```java
    trinityAudio.play();
 ```
-
-The TTS player supports autoplay if the `autoPlay` property of `TrinityAudioProtocol` is set to `true`. When enabled, the player will autoplay when it is ready to play.
 
 The trinity player offers multiple other APIs and to interact with it.
 This can be done by invoking the JS player API methods.
