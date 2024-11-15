@@ -4,8 +4,8 @@
 This document describes how to integrate Pulse Player into a
 an Android app as well as how to configure and control it.
 
--   Updated: Oct 30, 2024
--   Document version: 1.0
+-   Updated: Nov 14, 2024
+-   Document version: 2.0
 
 ### Integration
 
@@ -80,7 +80,7 @@ fun render(
 
 | Parameter                 | Description                                                                                                         |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------|
-| rootView                  | The `ViewGroup` that the `playerView` will overlay when expanded, only support **FrameLayout** in the current version. The `playerView` will overlay the `rootView` when expanded                                          |
+| rootView                  | The root view in the screen's layout. It should be a subclass of ViewGroup                                          |
 | playerView                | The TrinityPlayerView                                                                                               |
 | unitId                    | Your player unit identifier - will be provided by TrinityAudio team                                                 |
 | playlistURL                | URL which contains the playlist content                                                                                       |
@@ -122,11 +122,8 @@ try {
 The pulse player supports the sliding effect for some unit IDs provided by the Trinity Audio Team. 
 
 The pulse unit should open in a specific location with only part of it visible, such as the top navigation.
-Ensure you provide the correct `rootView` for the Pulse player to display the animation correctly.
 
-*Note*
-- The `rootView` should be a **FrameLayout**.
-- If you are putting the player on a scrollView, make sure the scrollView's one direct child is a **FrameLayout** and set it as the `rootView`
+The SDK does not include built-in transitions for the player, allowing for customization of the sliding animation. Please listen to the event from the callback function `trinityOnBrowseMode` of the `TrinityPulsePlayerListener` to collect the `expectedHeight` value in dp unit.
 
 #### Minimum Sizes for the Pulse Player
 
@@ -136,7 +133,16 @@ Ensure you provide the correct `rootView` for the Pulse player to display the an
 
 *Pulse-Sliding Minimum Sizes:*  
 - **Width:** Min = 300 dp (no maximum)  
-- **Height:** Min = 150 dp, Max = 350 dp  
+- **Height:** Min = 145 dp, Max = 332 dp  
+
+#### Autoplay
+The player supports autoplay if the `autoPlay` property of `TrinityAudioPulse` is set to `true`. The autoplay property *must* be set before calling the `render()` method for autoplay to work.
+When enabled, the player will play the audio once ready, without waiting for user interaction.
+
+```
+//example 
+trinityAudioPulse.autoPlay = true
+```
 
 #### GDPR & US privacy support
 For details on GDPR US privacy support please go [here](https://github.com/TrinityAudioSDK/trinityaudio-android-sdk/blob/main/Integration-guide.md#gdpr--us-privacy-support)
@@ -216,9 +222,9 @@ TrinityPulsePlayerListener methods.
 public void trinityOnPlayerReady(@NonNull TrinityAudioPulse trinityAudio, @NonNull playerId: String)
 ```
 
-- For detecting changes of the player browse mode. (For sliding animation units only).
+- To detect changes in the player mode (sliding units only) and update the `trinityPlayer` frame with or without animation using the `expectedHeight` value (in dp). 
 ```java
-public void trinityOnBrowseMode(@NonNull TrinityAudioPulse trinityAudio, @NonNull Boolean toggled) {} 
+public void trinityOnBrowseMode(@NonNull TrinityAudioPulse trinityAudio, @NonNull Boolean toggled, @NonNull Int expectedHeight) {} 
 ```
 
 
