@@ -132,7 +132,7 @@ try {
 }
 ```
 #### Autoplay
-The player supports autoplay if the `autoPlay` property of `TrinityAudioProtocol` is set to `true`. The autoplay property *must* be set before calling the `render()` method for autoplay to work.
+The player supports autoplay if the `autoPlay` property of `TrinityAudio` is set to `true`. The autoplay property *must* be set before calling the `render()` method for autoplay to work.
 When enabled, the player will play the audio once ready, without waiting for user interaction.
 
 ```
