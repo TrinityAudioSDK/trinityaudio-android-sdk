@@ -1,6 +1,10 @@
 # Change Log
 This document contains release notes for the TrinityAudio Android SDK
 
+## 2.1.51
+Released on Nov 19, 2024
+
+
 ## 2.1.50
 Released on Nov 15, 2024
 
