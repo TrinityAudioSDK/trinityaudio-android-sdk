@@ -98,8 +98,8 @@ Common Player Settings:
 | language | Language of the content provided. Use this incase it differs from the language configured |
 | voiceId  | Overrides the player level configuration for voice ID                                     |
 
-For the full list of available params look in our [player setting doc](https://trinity-audio-player.s3.amazonaws.com/TTS.pdf) under
-[Here](https://trinity-audio-player.s3.amazonaws.com/TTS.pdf) under
+For the full list of available params look in our [player setting doc](https://github.com/TrinityAudioSDK/trinityaudio-web-sdk/blob/main/TTS.md) under
+[here](https://github.com/TrinityAudioSDK/trinityaudio-web-sdk/blob/main/TTS.md) under
 `Script Tag Parameters` section.
 
 * Dark mode support - the SDK will attempt to identify whether the containing app is running in dark-mode, in which case it will change the player theme to a dark-mode theme if applicable
@@ -254,7 +254,7 @@ Java
 trinityAudio.evaluate("TRINITY_PLAYER.api.resultReadingText;");
 ```
 
-For the full reference please check the [JS API docs](https://trinity-audio-player.s3.amazonaws.com/TTS.pdf) under `API` section.
+For the full reference please check the [JS API docs](https://github.com/TrinityAudioSDK/trinityaudio-web-sdk/blob/main/TTS.md) under `API` section.
 
 * * * * *
 
@@ -339,4 +339,4 @@ Event structure is :
   }
 }
 ```
-For a list of events please see [here](https://trinity-audio-player.s3.amazonaws.com/TTS.pdf) under `Events` section. 
+For a list of events please see [here](https://github.com/TrinityAudioSDK/trinityaudio-web-sdk/blob/main/TTS.md) under `Events` section. 
