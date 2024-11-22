@@ -33,8 +33,9 @@ public interface TrinityAudioPulse {
 
 | Name      | Description                                                                                                         |
 |-----------|---------------------------------------------------------------------------------------------------------------------|
-| context   | The current Android context, could be the main context of the application or the current activity                   |
+| context   | The current Android context, should be `Activity` context. Avoid using `ApplicationContext`.   |
 | listener  | Used for monitoring and tracking player events. it should implement the TrinityPulsePlayerListener interface |
+
 
 Example:
 
@@ -65,6 +66,8 @@ android:layout_width="match_parent"
 android:layout_height="350dp"
 android:layout_marginTop="10dp" />
 ```
+
+If you create the `TrinityPlayerView` programmatically, please use `Activity` context that return from `requiredContext()` or `requiredActivity()`. Avoid using `ApplicationContext`.
 
 To render the player, call the render method of the `TrinityAudioPulse` instance.
 ```kotlin

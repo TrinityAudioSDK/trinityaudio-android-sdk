@@ -36,7 +36,7 @@ public interface TrinityAudio {
 
 | Name      | Description                                                                                                               |
 |-----------|---------------------------------------------------------------------------------------------------------------------------|
-| context   | The current Android context, could be the main context of the application or the current activity                         |
+| context   | The current Android context, should be `Activity` context. Avoid using `ApplicationContext`.                              |
 | listener  | It would be used to monitoring and tracking the player events. it should be implement the TrinityPlayerListener interface |
 
 Example:
@@ -68,6 +68,8 @@ android:layout_width="match_parent"
 android:layout_height="80dp"
 android:layout_marginTop="10dp" />
 ```
+
+If you create the `TrinityPlayerView` programmatically, please use `Activity` context that return from `requiredContext()` or `requiredActivity()`. Avoid using `ApplicationContext`.
 
 To render the player, call the render method of the `TrinityAudio` instance.
 ```kotlin
