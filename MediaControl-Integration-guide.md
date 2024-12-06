@@ -21,7 +21,7 @@ Declare Trinity Service class in the manifest with an intent filter of MediaSess
 
 ```
 <service
-    android:name="ai.trinityaudio.sdk.internal.session.TrinityPlaybackService"
+    android:name="ai.trinityaudio.sdk.TrinityPlaybackService"
     android:foregroundServiceType="mediaPlayback"
     android:exported="true">
     <intent-filter>
