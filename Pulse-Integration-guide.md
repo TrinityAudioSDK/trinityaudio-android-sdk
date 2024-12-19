@@ -147,6 +147,19 @@ When enabled, the player will play the audio once ready, without waiting for use
 trinityAudioPulse.autoPlay = true
 ```
 
+### Seek to next track or previous track
+The player supports seeking to the next or previous track. This functionality allows users to navigate through the playlist by moving to the next or previous track in the sequence.
+
+Seek to next track
+```
+trinityAudioPulse.nextTrack()
+```
+
+Seek to previous track
+```
+trinityAudioPulse.previousTrack()
+```
+
 #### GDPR & US privacy support
 For details on GDPR US privacy support please go [here](https://github.com/TrinityAudioSDK/trinityaudio-android-sdk/blob/main/Integration-guide.md#gdpr--us-privacy-support)
 
